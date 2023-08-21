@@ -1,7 +1,21 @@
 import React, { useEffect, useState } from "react";
-import styles from "@/styles/Home.module.css";
-import Modal from "react-modal";
 import { getCurrentDate } from "@/components/GetCurrentDate.js";
+import {
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  Text,
+  Stack,
+  Center,
+  OrderedList,
+  ListItem,
+  Flex,
+  Spacer,
+} from "@chakra-ui/react";
 
 export default function PreviousGames(props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,55 +41,65 @@ export default function PreviousGames(props) {
     props.onSelectWord(word);
     setIsOpen(false);
   };
-
+  // Need to update: Modal to match others, make the list pretty
   return (
     <div>
-      <button onClick={() => setIsOpen(true)}>Previous Games</button>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={() => setIsOpen(false)}
-        className={styles.modal}
-        ariaHideApp={false}
-      >
-        <div className={styles.modalContent}>
-          <div className={styles.modalHeader}>
-            <h1>Previous Games</h1>
-          </div>
-          <div className={styles.gameModalBody}>
-            <ol className={`${styles.gameListContainer} ${styles.scrollable}`}>
-              {filteredWords
-                .slice(0)
-                .reverse()
-                .map((word) => (
-                  <button
-                    className={styles.gameListItems}
-                    key={word.id}
-                    type="game"
-                    onClick={() => {
-                      handleGameSelect(word);
-                    }}
-                  >
-                    <div className={styles.itemText}>
-                      #{word.game} - Date:{" "}
-                      {word.id.substring(4, word.id.length - 2)}/
-                      {word.id.substring(6)}
-                    </div>
-                    <div className={styles.itemText}>
-                      {mapGameHistory.has(word.id) &&
-                      mapGameHistory.get(word.id).completed ? (
-                        <p>Complete</p>
-                      ) : null}
-                    </div>
-                  </button>
-                ))}
-            </ol>
-          </div>
-          <div className={styles.modalFooter}>
-            <button type="close" onClick={() => setIsOpen(false)}>
+      <Button type="open" onClick={() => setIsOpen(true)}>
+        Previous Games
+      </Button>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} size="2xl">
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader fontSize={"3xl"}>Previous Games</ModalHeader>
+          <ModalBody>
+            <Center>
+              <OrderedList
+                spacing={1}
+                w={"full"}
+                h={"sm"}
+                overflowX={"hidden"}
+                borderWidth="5px"
+                borderRadius="10px"
+                borderColor="black"
+                background="white"
+              >
+                {filteredWords
+                  .slice(0)
+                  .reverse()
+                  .map((word) => (
+                    <ListItem key={word.id}>
+                      <Button
+                        onClick={() => {
+                          handleGameSelect(word);
+                        }}
+                        w={"full"}
+                      >
+                        <Flex w={"full"}>
+                          <Text>
+                            #{word.game} - Date:{" "}
+                            {word.id.substring(4, word.id.length - 2)}/
+                            {word.id.substring(6)}
+                          </Text>
+                          <Spacer />
+                          <Text>
+                            {mapGameHistory.has(word.id) &&
+                            mapGameHistory.get(word.id).completed ? (
+                              <Text>Complete</Text>
+                            ) : null}
+                          </Text>
+                        </Flex>
+                      </Button>
+                    </ListItem>
+                  ))}
+              </OrderedList>
+            </Center>
+          </ModalBody>
+          <ModalFooter>
+            <Button type="close" onClick={() => setIsOpen(false)}>
               Close
-            </button>
-          </div>
-        </div>
+            </Button>
+          </ModalFooter>
+        </ModalContent>
       </Modal>
     </div>
   );

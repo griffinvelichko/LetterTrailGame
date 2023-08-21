@@ -1,4 +1,28 @@
+import {
+  Input,
+  Button,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  Text,
+  VStack,
+  Highlight,
+  HStack,
+  Center,
+  Spacer,
+  OrderedList,
+  ListItem,
+  Flex,
+  Stack,
+} from "@chakra-ui/react";
 import styles from "../styles/Home.module.css";
+import { CopyIcon } from "@chakra-ui/icons";
+
+import copy from "copy-to-clipboard";
+
 import useIsWordValid from "../utils/dictionary";
 import React, {
   forwardRef,
@@ -7,14 +31,19 @@ import React, {
   useState,
   useEffect,
 } from "react";
-import Modal from "react-modal";
 // import { getCurrentDate } from "./GetCurrentDate";
 
-function InputField({ isDisabled, value, onChange, className, onClick }) {
+function InputField({ isDisabled, value, onChange, bgColor, onClick }) {
   return (
-    <input
-      type="text"
-      className={className}
+    <Center
+      as="input"
+      border="5px solid black"
+      borderRadius="2xl"
+      h="60px"
+      w="60px"
+      padding="2.5"
+      fontSize="5xl"
+      bgColor={bgColor}
       disabled={isDisabled}
       minLength={1}
       maxLength={1}
@@ -27,15 +56,7 @@ function InputField({ isDisabled, value, onChange, className, onClick }) {
 
 const MainGame = forwardRef(
   (
-    {
-      startWord,
-      wordOfTheDay,
-      game,
-      // highscore,
-      date,
-      initPath,
-      initPersonalBestScore,
-    },
+    { startWord, wordOfTheDay, game, date, initPath, initPersonalBestScore },
     ref
   ) => {
     const fullyEnabled = new Array(startWord.length).fill(false);
@@ -158,12 +179,6 @@ const MainGame = forwardRef(
     const finishGame = () => {
       setComplete(false);
       setIsDisabled(fullyDisabled);
-      // if (score !== highscore) {
-      //   setWordPath([startWord]);
-      //   setCurrentWord(startWord);
-      //   setPrevWord(startWord);
-      //   setScore(0);
-      // }
     };
 
     useImperativeHandle(ref, () => ({
@@ -187,125 +202,242 @@ const MainGame = forwardRef(
       }
     }, [currentWord, prevWord]);
 
+    const copyToClipboard = () => {
+      let copyText = "Check my score for lettrail.com Game #" + { game } + "!";
+      let isCopy = copy(copyText);
+      if (isCopy) {
+        alert("Copied!");
+      }
+    };
+
+    //Following has not been edited: Modal, Congrats message at the top, Game Update on the left, Word of the Day on the Right, Current Word, Back and Submit Buttons, Submitted Words
     return (
       <>
         <div>
-          <Modal
-            isOpen={isComplete}
-            onRequestClose={() => finishGame()}
-            className={styles.modal}
-            ariaHideApp={false}
-          >
-            <div className={styles.modalContent}>
-              <div className={styles.modalHeader}>
-                <h1>Congrats!</h1>
-              </div>
-              <div className={styles.modalBody}>
-                <h2>
+          <Modal isOpen={isComplete} onClose={() => finishGame()} size="2xl">
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader fontSize={"3xl"}>Congrats!</ModalHeader>
+              <ModalBody>
+                <Text>
                   You got Game: {game}
                   <br />
                   on Move: {score}!
-                </h2>
-                <p></p>
-                {/* {highscore !== score && (
-                  <p>
-                    Try Again to beat the highscore {highscore} set by the AI
-                    algorithm!
-                  </p>
-                )} */}
-                {/* {highscore === score && ( */}
-                <p>
+                </Text>
+                <Text>
                   Congrats you found a path to the Word Of The Day! See if you
                   can best your score or come back tomorrow for a new challenge!
-                </p>
-                {/* )} */}
-              </div>
-              <div className={styles.modalFooter}>
-                <button type="close" onClick={() => finishGame()}>
+                </Text>
+              </ModalBody>
+              <ModalFooter>
+                <Button type="close" onClick={() => finishGame()}>
                   Back
-                </button>
-              </div>
-            </div>
+                </Button>
+              </ModalFooter>
+            </ModalContent>
           </Modal>
         </div>
-        <section className={styles.content}>
+        <VStack>
           {mapGameHistory.get(date) && mapGameHistory.get(date).completed && (
-            <div>
-              <h2>Congrats!</h2>
-              <h3>You Got To The Word Of The Day!</h3>
-              <h3></h3>
-              <h3>Check Tomorrow for a New Challenge.</h3>
-            </div>
+            <VStack
+              marginTop={3}
+              boxShadow="rgb(38, 57, 77) 0px 20px 30px -10px"
+              width="full"
+              borderRadius="10px"
+              background="white"
+            >
+              <Text as="b" fontSize={"3xl"} bgGradient="white">
+                Congrats!
+              </Text>
+              <Text fontSize={"xl"}>
+                You Got{" "}
+                <Text display="inline-block" as="b">
+                  Game #{game}
+                </Text>{" "}
+                in{" "}
+                <Text display="inline-block" as="b">
+                  {personalBestScore} moves!
+                </Text>
+              </Text>
+              <Button
+                leftIcon={<CopyIcon />}
+                onClick={copyToClipboard}
+                background="orange"
+                size="lg"
+                marginBottom={3}
+              >
+                Share my Score
+              </Button>
+            </VStack>
           )}
           <div>
-            <div className={styles.infoContainer}>
-              <div className={styles.infoBoxContainer}>
-                <div className={styles.infoBox}>
-                  <h4 className={styles.info}>Game #: {game}</h4>
-                  <h4 className={styles.info}>Moves: {score}</h4>
-                </div>
-                <div className={styles.infoBox}>
-                  <h4 className={styles.infoBelow}>
+            <Stack
+              spacing={{ base: 3, sm: 75 }}
+              marginTop={5}
+              direction={{ base: "column", sm: "row" }}
+            >
+              <VStack>
+                <HStack>
+                  <Center
+                    border="5px solid black"
+                    borderRadius="2xl"
+                    bg="white"
+                    color="black"
+                    padding="5px"
+                  >
+                    <Text fontSize={"lg"}>Game #: {game}</Text>
+                  </Center>
+                  <Spacer />
+                  <Center
+                    border="5px solid black"
+                    borderRadius="2xl"
+                    bg="white"
+                    color="black"
+                    padding="5px"
+                  >
+                    <Text fontSize={"lg"}>Moves: {score}</Text>
+                  </Center>
+                </HStack>
+                <Center
+                  border="5px solid black"
+                  borderRadius="2xl"
+                  bg="white"
+                  color="black"
+                  padding="5px"
+                >
+                  <Text fontSize={"lg"}>
                     Personal Highscore:{" "}
                     {(mapGameHistory.get(date) &&
                       mapGameHistory.get(date).personalBestScore) ||
                       0}
-                  </h4>
-                </div>
-              </div>
-              <div className={styles.infoWordBox}>
-                <h3>WORD OF THE DAY:</h3>
-                <div className={styles.nextto}>
+                  </Text>
+                </Center>
+              </VStack>
+              <VStack>
+                <Text as="b" fontSize={"xl"}>
+                  WORD OF THE DAY:
+                </Text>
+                <HStack>
                   {wordOfTheDay.map((letter, index) => (
-                    <p key={index} className={styles.letterbox}>
-                      {letter}
-                    </p>
+                    <Center
+                      key={index}
+                      border="5px solid black"
+                      borderRadius="2xl"
+                      bgColor="transparent"
+                      h="60px"
+                      w="60px"
+                    >
+                      <Text as="b" fontSize="6xl">
+                        {letter}
+                      </Text>
+                    </Center>
                   ))}
-                </div>
-              </div>
-            </div>
-            <h2>CURRENT WORD:</h2>
-            <form onSubmit={handleSubmit}>
-              <div className={styles.nextto}>
-                {currentWord.map((letter, index) => (
-                  <InputField
-                    key={index}
-                    className={`${
-                      isSuccessful
-                        ? styles.success
-                        : `${isErrored ? styles.errored : ""}`
-                    }`}
-                    isDisabled={isDisabled[index]}
-                    value={letter}
-                    onChange={(event) => handleInputChange(event, index)}
-                    onClick={(event) => {
-                      event.target.select();
+                </HStack>
+              </VStack>
+            </Stack>
+            <VStack
+              boxShadow={`${
+                mapGameHistory.get(date) && mapGameHistory.get(date).completed
+                  ? ""
+                  : "rgb(38, 57, 77) 0px 20px 30px -10px"
+              }`}
+              marginTop={5}
+              borderRadius={`${
+                mapGameHistory.get(date) && mapGameHistory.get(date).completed
+                  ? ""
+                  : "10px"
+              }`}
+              marginBottom={2}
+              w="full"
+            >
+              <Text as="b" fontSize={"xl"}>
+                CURRENT WORD:
+              </Text>
+              <form onSubmit={handleSubmit}>
+                <HStack justifyContent={"center"}>
+                  {currentWord.map((letter, index) => (
+                    <InputField
+                      key={index}
+                      bgColor={`${
+                        isSuccessful ? "blue" : `${isErrored ? "orange" : ""}`
+                      }`}
+                      isDisabled={isDisabled[index]}
+                      value={letter}
+                      onChange={(event) => handleInputChange(event, index)}
+                      onClick={(event) => {
+                        event.target.select();
+                      }}
+                    />
+                  ))}
+                </HStack>
+                <HStack marginTop={3}>
+                  <Input
+                    type="Button"
+                    value="Back"
+                    bg="transparent"
+                    borderWidth="5px"
+                    borderColor="transparent"
+                    _hover={{
+                      borderColor: "orange",
+                    }}
+                    onClick={handleBack}
+                  />
+                  <Input
+                    type="submit"
+                    value="Submit"
+                    bg="transparent"
+                    borderWidth="5px"
+                    borderColor="transparent"
+                    _hover={{
+                      borderColor: "blue",
                     }}
                   />
-                ))}
-              </div>
-              <div className={styles.nextto}>
-                <input type="button" value="Back" onClick={handleBack} />
-                <input type="submit" value="Submit" />
-              </div>
-            </form>
+                </HStack>
+              </form>
+            </VStack>
           </div>
-          <h2>SUBMITTED WORDS:</h2>
-          <ol>
+          <Text as="b" fontSize={"xl"}>
+            SUBMITTED WORDS:
+          </Text>
+          <OrderedList
+            spacing={1}
+            w="full"
+            h="xs"
+            overflowX={"hidden"}
+            borderWidth="5px"
+            borderRadius="10px"
+            borderColor="black"
+            background="white"
+          >
             {wordPath
               .slice(0)
               .reverse()
               .map((word, wordIndex) => (
-                <li key={wordIndex} className={styles.nextto}>
-                  {word.map((letter, letterIndex) => (
-                    <p key={letterIndex} className={styles.letterbox}>
-                      {letter}
-                    </p>
-                  ))}
-                </li>
+                <ListItem key={wordIndex}>
+                  <HStack w="full">
+                    <Flex w="full" justifyContent="center">
+                      <HStack>
+                        {word.map((letter, letterIndex) => (
+                          <Center
+                            key={letterIndex}
+                            border="5px solid black"
+                            borderRadius="2xl"
+                            bgColor="transparent"
+                            h="60px"
+                            w="60px"
+                          >
+                            <Text as="" fontSize="6xl">
+                              {letter}
+                            </Text>
+                          </Center>
+                        ))}
+                      </HStack>
+                    </Flex>
+                  </HStack>
+                </ListItem>
               ))}
-          </ol>
-        </section>
+          </OrderedList>
+        </VStack>
       </>
     );
   }

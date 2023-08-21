@@ -6,6 +6,24 @@ import MainGame from "@/components/MainGame.js";
 import PreviousGames from "@/components/PreviousGames";
 import { getCurrentDate } from "@/components/GetCurrentDate.js";
 import React, { useState, useRef, useEffect } from "react";
+import {
+  Container,
+  Stack,
+  Flex,
+  Box,
+  Heading,
+  Highlight,
+  Button,
+  Image,
+  Icon,
+  IconButton,
+  createIcon,
+  IconProps,
+  useColorModeValue,
+  VStack,
+  Center,
+  HStack,
+} from "@chakra-ui/react";
 
 export default function Home(props) {
   console.log(props);
@@ -37,20 +55,32 @@ export default function Home(props) {
   }, [wordPath, wordObj, personalBestScore]);
 
   return (
-    <>
+    <Center w={"full"} bgColor={"background"}>
       <Head>
-        <title>LETTR.AIL</title>
+        <title>LETTR TRAIL</title>
         <meta name="description" content="Your meta description here" />
       </Head>
-      <div className={styles.container}>
-        <header className={styles.header}>
-          <h1>WORPH</h1>
-          <div className={styles.nextto}>
+      <VStack
+        spacing={0}
+        bgGradient="linear(to-br, orange, lightOrange, beige, lightBlue, blue)"
+        w={"4xl"}
+        borderRadius={{ sm: "50" }}
+      >
+        <VStack
+          spacing={1}
+          h={175}
+          w={"full"}
+          bgGradient="linear(to-b, beige, beige, beige, transparent)"
+        >
+          <Heading marginTop={5} size={"3xl"} fontFamily="monospace">
+            LETTR TRAIL
+          </Heading>
+          <HStack spacing={5}>
             <InfoPopup />
             <PreviousGames words={words} onSelectWord={handleGameSelect} />
             <CreditPopup />
-          </div>
-        </header>
+          </HStack>
+        </VStack>
         <MainGame
           wordOfTheDay={wordObj.wordOfTheDay}
           game={wordObj.game}
@@ -61,14 +91,15 @@ export default function Home(props) {
           initPersonalBestScore={personalBestScore}
           ref={gameRef} // pass the ref to the MainGame component
         />
-      </div>
-    </>
+      </VStack>
+    </Center>
   );
 }
 
 // Fetching data from the JSON file
 import fsPromises from "fs/promises";
 import path from "path";
+import { redirect } from "next/dist/server/api-utils";
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data.json");
   const jsonData = await fsPromises.readFile(filePath);

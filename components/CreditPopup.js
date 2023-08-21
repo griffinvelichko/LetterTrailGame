@@ -59,11 +59,11 @@ import {
 } from "@chakra-ui/react";
 
 export default function creditPopup() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   // Need to update: Format/Simplify Rules Explanation, Add pictures and cool easy to follow stuff, Match Modal to format of others
   return (
     <div>
-      <Button type="open" onClick={() => setIsOpen(false)}>
+      <Button type="open" onClick={() => setIsOpen(true)}>
         Credit
       </Button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} size="2xl">

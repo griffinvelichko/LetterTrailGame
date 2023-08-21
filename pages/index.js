@@ -63,19 +63,20 @@ export default function Home(props) {
       <VStack
         spacing={0}
         bgGradient="linear(to-br, orange, lightOrange, beige, lightBlue, blue)"
-        w={"4xl"}
+        w={"xl"}
+        h={"full"}
         borderRadius={{ sm: "50" }}
       >
         <VStack
           spacing={1}
-          h={175}
+          h={115}
           w={"full"}
-          bgGradient="linear(to-b, beige, beige, beige, transparent)"
+          bgGradient="linear(to-b, beige, beige, beige, beige, beige, beige, beige, transparent)"
         >
-          <Heading marginTop={5} size={"3xl"} fontFamily="monospace">
+          <Heading marginTop={2} size={"2xl"} fontFamily="monospace">
             LETTR TRAIL
           </Heading>
-          <HStack spacing={5}>
+          <HStack marginTop={0} spacing={2}>
             <InfoPopup />
             <PreviousGames words={words} onSelectWord={handleGameSelect} />
             <CreditPopup />

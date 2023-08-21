@@ -20,7 +20,6 @@ const theme = extendTheme({
     blue: "#245275",
   },
   components: {
-    List: {},
     Button: {
       baseStyle: { borderWidth: "5px", borderColor: "transparent" },
       variants: {

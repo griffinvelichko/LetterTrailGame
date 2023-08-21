@@ -38,11 +38,12 @@ function InputField({ isDisabled, value, onChange, bgColor, onClick }) {
     <Center
       as="input"
       border="5px solid black"
-      borderRadius="2xl"
-      h="60px"
-      w="60px"
+      borderRadius="lg"
+      h="47px"
+      w="47px"
       padding="2.5"
-      fontSize="5xl"
+      fontSize="3xl"
+      marginBottom="-2"
       bgColor={bgColor}
       disabled={isDisabled}
       minLength={1}
@@ -214,10 +215,10 @@ const MainGame = forwardRef(
     return (
       <>
         <div>
-          <Modal isOpen={isComplete} onClose={() => finishGame()} size="2xl">
+          <Modal isOpen={isComplete} onClose={() => finishGame()} size="lg">
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader fontSize={"3xl"}>Congrats!</ModalHeader>
+              <ModalHeader fontSize={"xl"}>Congrats!</ModalHeader>
               <ModalBody>
                 <Text>
                   You got Game: {game}
@@ -240,16 +241,15 @@ const MainGame = forwardRef(
         <VStack>
           {mapGameHistory.get(date) && mapGameHistory.get(date).completed && (
             <VStack
-              marginTop={3}
               boxShadow="rgb(38, 57, 77) 0px 20px 30px -10px"
               width="full"
               borderRadius="10px"
               background="white"
             >
-              <Text as="b" fontSize={"3xl"} bgGradient="white">
+              <Text as="b" fontSize={"xl"} bgGradient="white">
                 Congrats!
               </Text>
-              <Text fontSize={"xl"}>
+              <Text fontSize={"md"}>
                 You Got{" "}
                 <Text display="inline-block" as="b">
                   Game #{game}
@@ -263,7 +263,7 @@ const MainGame = forwardRef(
                 leftIcon={<CopyIcon />}
                 onClick={copyToClipboard}
                 background="orange"
-                size="lg"
+                size="sm"
                 marginBottom={3}
               >
                 Share my Score
@@ -272,40 +272,40 @@ const MainGame = forwardRef(
           )}
           <div>
             <Stack
-              spacing={{ base: 3, sm: 75 }}
-              marginTop={5}
+              spacing={{ base: 3, sm: 50 }}
+              marginTop={3}
               direction={{ base: "column", sm: "row" }}
             >
               <VStack>
                 <HStack>
                   <Center
                     border="5px solid black"
-                    borderRadius="2xl"
+                    borderRadius="lg"
                     bg="white"
                     color="black"
                     padding="5px"
                   >
-                    <Text fontSize={"lg"}>Game #: {game}</Text>
+                    <Text fontSize={"sm"}>Game #: {game}</Text>
                   </Center>
                   <Spacer />
                   <Center
                     border="5px solid black"
-                    borderRadius="2xl"
+                    borderRadius="lg"
                     bg="white"
                     color="black"
                     padding="5px"
                   >
-                    <Text fontSize={"lg"}>Moves: {score}</Text>
+                    <Text fontSize={"sm"}>Moves: {score}</Text>
                   </Center>
                 </HStack>
                 <Center
                   border="5px solid black"
-                  borderRadius="2xl"
+                  borderRadius="lg"
                   bg="white"
                   color="black"
                   padding="5px"
                 >
-                  <Text fontSize={"lg"}>
+                  <Text fontSize={"sm"}>
                     Personal Highscore:{" "}
                     {(mapGameHistory.get(date) &&
                       mapGameHistory.get(date).personalBestScore) ||
@@ -314,7 +314,7 @@ const MainGame = forwardRef(
                 </Center>
               </VStack>
               <VStack>
-                <Text as="b" fontSize={"xl"}>
+                <Text as="b" fontSize={"md"}>
                   WORD OF THE DAY:
                 </Text>
                 <HStack>
@@ -322,12 +322,12 @@ const MainGame = forwardRef(
                     <Center
                       key={index}
                       border="5px solid black"
-                      borderRadius="2xl"
+                      borderRadius="lg"
                       bgColor="transparent"
-                      h="60px"
-                      w="60px"
+                      h="47px"
+                      w="47px"
                     >
-                      <Text as="b" fontSize="6xl">
+                      <Text as="b" fontSize="4xl">
                         {letter}
                       </Text>
                     </Center>
@@ -341,16 +341,16 @@ const MainGame = forwardRef(
                   ? ""
                   : "rgb(38, 57, 77) 0px 20px 30px -10px"
               }`}
-              marginTop={5}
+              marginTop={2}
               borderRadius={`${
                 mapGameHistory.get(date) && mapGameHistory.get(date).completed
                   ? ""
                   : "10px"
               }`}
-              marginBottom={2}
+              marginBottom={0}
               w="full"
             >
-              <Text as="b" fontSize={"xl"}>
+              <Text as="b" fontSize={"md"}>
                 CURRENT WORD:
               </Text>
               <form onSubmit={handleSubmit}>
@@ -384,7 +384,7 @@ const MainGame = forwardRef(
                   />
                   <Input
                     type="submit"
-                    value="Submit"
+                    value="Enter"
                     bg="transparent"
                     borderWidth="5px"
                     borderColor="transparent"
@@ -396,13 +396,13 @@ const MainGame = forwardRef(
               </form>
             </VStack>
           </div>
-          <Text as="b" fontSize={"xl"}>
+          <Text as="b" fontSize={"md"}>
             SUBMITTED WORDS:
           </Text>
           <OrderedList
             spacing={1}
             w="full"
-            h="xs"
+            h="3xs"
             overflowX={"hidden"}
             borderWidth="5px"
             borderRadius="10px"
@@ -421,12 +421,12 @@ const MainGame = forwardRef(
                           <Center
                             key={letterIndex}
                             border="5px solid black"
-                            borderRadius="2xl"
+                            borderRadius="lg"
                             bgColor="transparent"
-                            h="60px"
-                            w="60px"
+                            h="47px"
+                            w="47px"
                           >
-                            <Text as="" fontSize="6xl">
+                            <Text as="" fontSize="4xl">
                               {letter}
                             </Text>
                           </Center>

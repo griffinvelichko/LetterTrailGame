@@ -63,7 +63,7 @@ export default function creditPopup() {
   // Need to update: Format/Simplify Rules Explanation, Add pictures and cool easy to follow stuff, Match Modal to format of others
   return (
     <div>
-      <Button type="open" onClick={() => setIsOpen(true)}>
+      <Button type="open" onClick={() => setIsOpen(false)}>
         Credit
       </Button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} size="2xl">

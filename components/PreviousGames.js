@@ -11,7 +11,7 @@ import {
   Text,
   Stack,
   Center,
-  OrderedList,
+  List,
   ListItem,
   Flex,
   Spacer,
@@ -53,7 +53,7 @@ export default function PreviousGames(props) {
           <ModalHeader fontSize={"3xl"}>Previous Games</ModalHeader>
           <ModalBody>
             <Center>
-              <OrderedList
+              <List
                 spacing={1}
                 w={"full"}
                 h={"sm"}
@@ -91,7 +91,7 @@ export default function PreviousGames(props) {
                       </Button>
                     </ListItem>
                   ))}
-              </OrderedList>
+              </List>
             </Center>
           </ModalBody>
           <ModalFooter>

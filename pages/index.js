@@ -20,6 +20,7 @@ import {
   createIcon,
   IconProps,
   useColorModeValue,
+  Text,
   VStack,
   Center,
   HStack,
@@ -35,6 +36,8 @@ export default function Home(props) {
   const gameRef = useRef();
   const [personalBestScore, setPersonalBestScore] = useState(0);
   const [wordPath, setWordPath] = useState([wordObj.startWord]);
+  const [text, setText] = useState("LETTR TRAIL");
+  const [isOnRight, setIsOnRight] = useState(false);
 
   function handleGameSelect(word) {
     const currHistory = new Map(JSON.parse(localStorage.getItem("history")));
@@ -54,52 +57,89 @@ export default function Home(props) {
     }
   }, [wordPath, wordObj, personalBestScore]);
 
+  function handleMouseMove(event) {
+    // Calculate the middle of the screen.
+    const middleOfScreen = window.innerWidth / 2;
+
+    // Check if the cursor's x-position is greater than the middle.
+    if (event.clientX > middleOfScreen) {
+      setIsOnRight(true);
+    } else {
+      setIsOnRight(false);
+    }
+  }
+
   return (
-    <Center w={"full"} bgColor={"background"}>
-      <Head>
-        <title>LETTR TRAIL</title>
-        <meta name="description" content="Your meta description here" />
-      </Head>
-      <VStack
-        spacing={0}
-        bgGradient="linear(to-br, orange, lightOrange, beige, lightBlue, blue)"
-        w={"xl"}
-        h={"full"}
-        borderRadius={{ sm: "50" }}
-      >
+    <div onMouseMove={handleMouseMove}>
+      <HStack position={"absolute"} h={"100vh"} w={"full"} spacing={0}></HStack>
+      <Center w={"full"} bgColor={"background"}>
+        <Head>
+          <title>LETTR TRAIL</title>
+          <meta name="description" content="Your meta description here" />
+        </Head>
         <VStack
-          spacing={1}
-          h={115}
-          w={"full"}
-          bgGradient="linear(to-b, beige, beige, beige, beige, beige, beige, beige, transparent)"
+          position={"relative"}
+          spacing={0}
+          bgGradient="linear(to-br, orange, lightOrange, beige, lightBlue, blue)"
+          w={"xl"}
+          h={"full"}
+          borderRadius={{ sm: "50" }}
         >
-          <Heading marginTop={2} size={"2xl"} fontFamily="monospace">
-            LETTR TRAIL
-          </Heading>
-          <HStack marginTop={0} spacing={2}>
-            <InfoPopup />
-            <PreviousGames words={words} onSelectWord={handleGameSelect} />
-            <CreditPopup />
-          </HStack>
+          <VStack
+            spacing={1}
+            h={115}
+            w={"full"}
+            bgGradient="linear(to-b, beige, beige, beige, beige, beige, beige, beige, transparent)"
+          >
+            <Heading lineHeight="tall" fontFamily="monospace" fontSize="5xl">
+              <Highlight
+                query={isOnRight ? "TRAIL" : "LETTR"}
+                styles={
+                  isOnRight
+                    ? {
+                        fontFamily: "monospace",
+                        fontSize: "5xl",
+                        py: ".5",
+                        rounded: "2xl",
+                        bgGradient: "linear(to-r, beige, lightBlue, blue)",
+                      }
+                    : {
+                        fontFamily: "monospace",
+                        fontSize: "5xl",
+                        py: ".5",
+                        rounded: "2xl",
+                        bgGradient: "linear(to-r, orange, lightOrange, beige)",
+                      }
+                }
+              >
+                LETTRAIL
+              </Highlight>
+            </Heading>
+            <HStack marginTop={-4} spacing={2}>
+              <InfoPopup />
+              <PreviousGames words={words} onSelectWord={handleGameSelect} />
+              <CreditPopup />
+            </HStack>
+          </VStack>
+          <MainGame
+            wordOfTheDay={wordObj.wordOfTheDay}
+            game={wordObj.game}
+            highscore={wordObj.highscore}
+            startWord={wordObj.startWord}
+            date={wordObj.id}
+            initPath={wordPath}
+            initPersonalBestScore={personalBestScore}
+            ref={gameRef} // pass the ref to the MainGame component
+          />
         </VStack>
-        <MainGame
-          wordOfTheDay={wordObj.wordOfTheDay}
-          game={wordObj.game}
-          highscore={wordObj.highscore}
-          startWord={wordObj.startWord}
-          date={wordObj.id}
-          initPath={wordPath}
-          initPersonalBestScore={personalBestScore}
-          ref={gameRef} // pass the ref to the MainGame component
-        />
-      </VStack>
-    </Center>
+      </Center>
+    </div>
   );
 }
 
 // Fetching data from the JSON file
 import fsPromises from "fs/promises";
-import path from "path";
+import path, { relative } from "path";
 import { redirect } from "next/dist/server/api-utils";
 export async function getStaticProps() {
   const filePath = path.join(process.cwd(), "data.json");

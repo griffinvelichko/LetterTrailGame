@@ -13,7 +13,7 @@ import {
   HStack,
   Center,
   Spacer,
-  OrderedList,
+  List,
   ListItem,
   Flex,
   Stack,
@@ -256,7 +256,7 @@ const MainGame = forwardRef(
                 </Text>{" "}
                 in{" "}
                 <Text display="inline-block" as="b">
-                  {personalBestScore} moves!
+                  {mapGameHistory.get(date).personalBestScore || 0} moves!
                 </Text>
               </Text>
               <Button
@@ -270,34 +270,14 @@ const MainGame = forwardRef(
               </Button>
             </VStack>
           )}
-          <div>
-            <Stack
-              spacing={{ base: 3, sm: 50 }}
-              marginTop={3}
-              direction={{ base: "column", sm: "row" }}
-            >
-              <VStack>
-                <HStack>
-                  <Center
-                    border="5px solid black"
-                    borderRadius="lg"
-                    bg="white"
-                    color="black"
-                    padding="5px"
-                  >
-                    <Text fontSize={"sm"}>Game #: {game}</Text>
-                  </Center>
-                  <Spacer />
-                  <Center
-                    border="5px solid black"
-                    borderRadius="lg"
-                    bg="white"
-                    color="black"
-                    padding="5px"
-                  >
-                    <Text fontSize={"sm"}>Moves: {score}</Text>
-                  </Center>
-                </HStack>
+
+          <Stack
+            spacing={{ base: 3, sm: 50 }}
+            marginTop={3}
+            direction={{ base: "column", sm: "row" }}
+          >
+            <VStack>
+              <HStack>
                 <Center
                   border="5px solid black"
                   borderRadius="lg"
@@ -305,101 +285,120 @@ const MainGame = forwardRef(
                   color="black"
                   padding="5px"
                 >
-                  <Text fontSize={"sm"}>
-                    Personal Highscore:{" "}
-                    {(mapGameHistory.get(date) &&
-                      mapGameHistory.get(date).personalBestScore) ||
-                      0}
-                  </Text>
+                  <Text fontSize={"sm"}>Game #: {game}</Text>
                 </Center>
-              </VStack>
-              <VStack>
-                <Text as="b" fontSize={"md"}>
-                  WORD OF THE DAY:
+                <Spacer />
+                <Center
+                  border="5px solid black"
+                  borderRadius="lg"
+                  bg="white"
+                  color="black"
+                  padding="5px"
+                >
+                  <Text fontSize={"sm"}>Moves: {score}</Text>
+                </Center>
+              </HStack>
+              <Center
+                border="5px solid black"
+                borderRadius="lg"
+                bg="white"
+                color="black"
+                padding="5px"
+              >
+                <Text fontSize={"sm"}>
+                  Personal Highscore:{" "}
+                  {(mapGameHistory.get(date) &&
+                    mapGameHistory.get(date).personalBestScore) ||
+                    0}
                 </Text>
-                <HStack>
-                  {wordOfTheDay.map((letter, index) => (
-                    <Center
-                      key={index}
-                      border="5px solid black"
-                      borderRadius="lg"
-                      bgColor="transparent"
-                      h="47px"
-                      w="47px"
-                    >
-                      <Text as="b" fontSize="4xl">
-                        {letter}
-                      </Text>
-                    </Center>
-                  ))}
-                </HStack>
-              </VStack>
-            </Stack>
-            <VStack
-              boxShadow={`${
-                mapGameHistory.get(date) && mapGameHistory.get(date).completed
-                  ? ""
-                  : "rgb(38, 57, 77) 0px 20px 30px -10px"
-              }`}
-              marginTop={2}
-              borderRadius={`${
-                mapGameHistory.get(date) && mapGameHistory.get(date).completed
-                  ? ""
-                  : "10px"
-              }`}
-              marginBottom={0}
-              w="full"
-            >
-              <Text as="b" fontSize={"md"}>
-                CURRENT WORD:
-              </Text>
-              <form onSubmit={handleSubmit}>
-                <HStack justifyContent={"center"}>
-                  {currentWord.map((letter, index) => (
-                    <InputField
-                      key={index}
-                      bgColor={`${
-                        isSuccessful ? "blue" : `${isErrored ? "orange" : ""}`
-                      }`}
-                      isDisabled={isDisabled[index]}
-                      value={letter}
-                      onChange={(event) => handleInputChange(event, index)}
-                      onClick={(event) => {
-                        event.target.select();
-                      }}
-                    />
-                  ))}
-                </HStack>
-                <HStack marginTop={3}>
-                  <Input
-                    type="submit"
-                    value="Back"
-                    bg="transparent"
-                    borderWidth="5px"
-                    borderColor="transparent"
-                    _hover={{
-                      borderColor: "orange",
-                    }}
-                    onClick={handleBack}
-                  />
-                  <Input
-                    type="submit"
-                    value="Enter"
-                    bg="transparent"
-                    borderWidth="5px"
-                    borderColor="transparent"
-                    _hover={{
-                      borderColor: "blue",
-                    }}
-                  />
-                </HStack>
-              </form>
+              </Center>
             </VStack>
-          </div>
+            <VStack>
+              <Text as="b" fontSize={"md"}>
+                WORD OF THE DAY:
+              </Text>
+              <HStack>
+                {wordOfTheDay.map((letter, index) => (
+                  <Center
+                    key={index}
+                    border="5px solid black"
+                    borderRadius="lg"
+                    bgColor="transparent"
+                    h="47px"
+                    w="47px"
+                  >
+                    <Text as="b" fontSize="4xl">
+                      {letter}
+                    </Text>
+                  </Center>
+                ))}
+              </HStack>
+            </VStack>
+          </Stack>
+          <VStack
+            boxShadow={`${
+              mapGameHistory.get(date) && mapGameHistory.get(date).completed
+                ? ""
+                : "rgb(38, 57, 77) 0px 20px 30px -10px"
+            }`}
+            marginTop={2}
+            borderRadius={`${
+              mapGameHistory.get(date) && mapGameHistory.get(date).completed
+                ? ""
+                : "10px"
+            }`}
+            marginBottom={0}
+            w="full"
+          >
+            <Text as="b" fontSize={"md"}>
+              CURRENT WORD:
+            </Text>
+            <form onSubmit={handleSubmit}>
+              <HStack justifyContent={"center"}>
+                {currentWord.map((letter, index) => (
+                  <InputField
+                    key={index}
+                    bgColor={`${
+                      isSuccessful ? "blue" : `${isErrored ? "orange" : ""}`
+                    }`}
+                    isDisabled={isDisabled[index]}
+                    value={letter}
+                    onChange={(event) => handleInputChange(event, index)}
+                    onClick={(event) => {
+                      event.target.select();
+                    }}
+                  />
+                ))}
+              </HStack>
+              <HStack marginTop={3}>
+                <Input
+                  type="submit"
+                  value="Back"
+                  bg="transparent"
+                  borderWidth="5px"
+                  borderColor="transparent"
+                  _hover={{
+                    borderColor: "orange",
+                  }}
+                  onClick={handleBack}
+                />
+                <Input
+                  type="submit"
+                  value="Enter"
+                  bg="transparent"
+                  borderWidth="5px"
+                  borderColor="transparent"
+                  _hover={{
+                    borderColor: "blue",
+                  }}
+                />
+              </HStack>
+            </form>
+          </VStack>
           <Text as="b" fontSize={"md"}>
             SUBMITTED WORDS:
           </Text>
-          <OrderedList
+          <List
             spacing={1}
             w="full"
             h="3xs"
@@ -436,7 +435,7 @@ const MainGame = forwardRef(
                   </HStack>
                 </ListItem>
               ))}
-          </OrderedList>
+          </List>
         </VStack>
       </>
     );

@@ -129,6 +129,8 @@ const MainGame = forwardRef(
     };
 
     const handleBack = async () => {
+      setIsErrored(true);
+      setTimeout(() => setIsErrored(false), 250);
       if (currentWord.toString() !== prevWord.toString()) {
         if (currentWord.toString() === wordOfTheDay.toString()) {
           setCurrentWord(wordPath[wordPath.length - 2]);
@@ -407,6 +409,8 @@ const MainGame = forwardRef(
             borderRadius="10px"
             borderColor="black"
             background="white"
+            marginBottom={2}
+            paddingTop={0.5}
           >
             {wordPath
               .slice(0)

@@ -91,24 +91,26 @@ export default function Home(props) {
             w={"full"}
             bgGradient="linear(to-b, beige, beige, beige, beige, beige, beige, beige, transparent)"
           >
-            <Heading lineHeight="tall" fontFamily="monospace" fontSize="5xl">
+            <Heading
+              lineHeight="tall"
+              fontFamily="Courier Prime, monospace"
+              fontSize="5xl"
+            >
               <Highlight
                 query={isOnRight ? "TRAIL" : "LETTR"}
                 styles={
                   isOnRight
                     ? {
-                        fontFamily: "monospace",
                         fontSize: "5xl",
                         py: ".5",
                         rounded: "2xl",
-                        bgGradient: "linear(to-r, beige, lightBlue, blue)",
+                        bgGradient: "linear(to-r, lightBlue, blue)",
                       }
                     : {
-                        fontFamily: "monospace",
                         fontSize: "5xl",
                         py: ".5",
                         rounded: "2xl",
-                        bgGradient: "linear(to-r, orange, lightOrange, beige)",
+                        bgGradient: "linear(to-r, orange, lightOrange)",
                       }
                 }
               >

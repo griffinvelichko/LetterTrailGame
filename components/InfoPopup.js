@@ -24,25 +24,33 @@ export default function infoPopup() {
         <ModalContent>
           <ModalHeader fontSize={"3xl"}>How To Play?</ModalHeader>
           <ModalBody>
-            <VStack spacing={5}>
+            <VStack spacing={5} alignItems={"start"}>
               <Text>
-                Transform the <Text as={"b"}>CURRENT WORD</Text> to the{" "}
+                Find the trail from the <Text as={"b"}>CURRENT WORD</Text> to
+                the <Text as={"b"}>WORD OF THE DAY</Text>.
+              </Text>
+              <Text>
+                Change one letter of the <Text as={"b"}>CURRENT WORD</Text> to
+                create a new word. With each new word try to get closer to the{" "}
                 <Text as={"b"}>WORD OF THE DAY</Text>.
               </Text>
               <Text>
-                Change one letter of the CURRENT WORD to create a new word. With
-                each new word try to get closer to the WORD OF THE DAY.
+                <Text as={"b"}>WIN THE GAME</Text> by finding the{" "}
+                <Text
+                  bgGradient="linear(to-r, orange, orange, lightOrange, lightBlue, blue, blue)"
+                  bgClip="text"
+                  fontWeight="extrabold"
+                  display="inline-block"
+                >
+                  LETTR TRAIL
+                </Text>{" "}
+                to the <Text as={"b"}>WORD OF THE DAY</Text> in the least amount
+                of moves!
               </Text>
               <Text>
-                Our AI software has found the least amount of new words needed
-                to transform the CURRENT WORD to the WORD OF THE DAY.
-              </Text>
-              <Text>
-                WIN THE GAME by transforming to the WORD OF THE DAY in the least
-                amount of attempts!
-              </Text>
-              <Text>
-                Once you're done, check back tomorrow for a new challenge!
+                <Text as={"b"}>SHARE WITH FRIENDS</Text> to see who gets the
+                better score and <Text as={"b"}>CHECK BACK TOMORROW</Text> for a
+                new challenge!
               </Text>
             </VStack>
           </ModalBody>

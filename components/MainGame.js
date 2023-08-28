@@ -206,7 +206,13 @@ const MainGame = forwardRef(
     }, [currentWord, prevWord]);
 
     const copyToClipboard = () => {
-      let copyText = "Check my score for lettrail.com Game #" + { game } + "!";
+      let copyText =
+        "Check my score for lettrail.com!" +
+        " I got Game #" +
+        game +
+        " in " +
+        mapGameHistory.get(date).personalBestScore +
+        " moves!";
       let isCopy = copy(copyText);
       if (isCopy) {
         alert("Copied!");

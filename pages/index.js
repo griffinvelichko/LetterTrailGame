@@ -58,10 +58,8 @@ export default function Home(props) {
   }, [wordPath, wordObj, personalBestScore]);
 
   function handleMouseMove(event) {
-    // Calculate the middle of the screen.
     const middleOfScreen = window.innerWidth / 2;
 
-    // Check if the cursor's x-position is greater than the middle.
     if (event.clientX > middleOfScreen) {
       setIsOnRight(true);
     } else {
@@ -74,8 +72,41 @@ export default function Home(props) {
       <HStack position={"absolute"} h={"100vh"} w={"full"} spacing={0}></HStack>
       <Center w={"full"} bgColor={"background"}>
         <Head>
-          <title>LETTR TRAIL</title>
-          <meta name="description" content="Your meta description here" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="author" content="Griffin Velichko" />
+          <meta charset="UTF-8" />
+
+          <title>LETTR TRAIL - Daily Word Game</title>
+          <meta
+            name="description"
+            content="In Lettr Trail, change one letter at a time to find the WORD OF THE DAY. Aim for the fewest moves and share daily scores!"
+          />
+          <meta
+            name="keywords"
+            content="lettr trail, lettrail, word game, games, free games, word of the day, daily challenge, letter trail, puzzle games"
+          />
+
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+          <meta name="msapplication-TileColor" content="#da532c" />
+          <meta name="theme-color" content="#ffffff" />
         </Head>
         <VStack
           position={"relative"}

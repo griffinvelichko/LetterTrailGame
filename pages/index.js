@@ -74,7 +74,7 @@ export default function Home(props) {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="author" content="Griffin Velichko" />
-          <meta charset="UTF-8" />
+          <meta charSet="UTF-8" />
 
           <title>LETTR TRAIL - Daily Word Game</title>
           <meta

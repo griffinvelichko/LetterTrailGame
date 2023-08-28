@@ -374,7 +374,7 @@ const MainGame = forwardRef(
               </HStack>
               <HStack marginTop={3}>
                 <Input
-                  type="submit"
+                  type="button"
                   value="Back"
                   bg="transparent"
                   borderWidth="5px"

@@ -30,6 +30,7 @@ export default function creditPopup() {
                 <Text display="inline-block" as="b">
                   Griffin Velichko
                 </Text>
+                .
               </Text>
               <Text>
                 The data used to determine the validity of a submitted word

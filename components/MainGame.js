@@ -224,13 +224,39 @@ const MainGame = forwardRef(
               <ModalHeader fontSize={"xl"}>Congrats!</ModalHeader>
               <ModalBody>
                 <Text>
-                  You got Game: {game}
+                  You got Game:{" "}
+                  <Text
+                    bgGradient="linear(to-r, orange, lightOrange)"
+                    bgClip="text"
+                    fontWeight="extrabold"
+                    display="inline-block"
+                  >
+                    {game}
+                  </Text>
                   <br />
-                  on Move: {score}!
+                  on Move:{" "}
+                  <Text
+                    bgGradient="linear(to-r, lightBlue, blue)"
+                    bgClip="text"
+                    fontWeight="extrabold"
+                    display="inline-block"
+                  >
+                    {score}
+                  </Text>
                 </Text>
                 <Text>
-                  Congrats you found a path to the Word Of The Day! See if you
-                  can best your score or come back tomorrow for a new challenge!
+                  <br />
+                  You found a path to the{" "}
+                  <Text
+                    bgGradient="linear(to-r, orange, orange, lightOrange, lightBlue, blue, blue)"
+                    bgClip="text"
+                    fontWeight="extrabold"
+                    display="inline-block"
+                  >
+                    WORD OF THE DAY
+                  </Text>
+                  !<br />
+                  Share your daily scores with friends!
                 </Text>
               </ModalBody>
               <ModalFooter>

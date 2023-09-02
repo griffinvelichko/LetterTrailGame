@@ -256,8 +256,19 @@ const MainGame = forwardRef(
                     WORD OF THE DAY
                   </Text>
                   !<br />
-                  Share your daily scores with friends!
                 </Text>
+                <br />
+                <Center>
+                  <Button
+                    leftIcon={<CopyIcon />}
+                    onClick={copyToClipboard}
+                    background="orange"
+                    size="sm"
+                    marginBottom={3}
+                  >
+                    Share my Score
+                  </Button>
+                </Center>
               </ModalBody>
               <ModalFooter>
                 <Button type="close" onClick={() => finishGame()}>

@@ -90,7 +90,6 @@ const MainGame = forwardRef(
 
     const handleSubmit = async () => {
       event.preventDefault();
-      console.log("B4: " + score + " " + personalBestScore);
       if (currentWord.toString() !== prevWord.toString() && isValid) {
         setIsSuccessful(true);
         setScore(score + 1);
@@ -125,7 +124,6 @@ const MainGame = forwardRef(
         setCurrentWord(prevWord);
         setTimeout(() => setIsErrored(false), 250);
       }
-      console.log("After: " + score + " " + personalBestScore);
     };
 
     const handleBack = async () => {
@@ -159,10 +157,7 @@ const MainGame = forwardRef(
     // Issue with setting personalBestScore on initGame
     // Problem is somewhere in here:
     const initGame = () => {
-      console.log("date" + date);
-      console.log(mapGameHistory);
       const todayData = mapGameHistory.get(date);
-      console.log("today data: " + todayData);
       if (todayData && todayData.completed) {
         const updatedPath = todayData.wordPath;
         setWordPath(updatedPath);

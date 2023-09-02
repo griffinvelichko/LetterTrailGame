@@ -27,7 +27,6 @@ import {
 } from "@chakra-ui/react";
 
 export default function Home(props) {
-  console.log(props);
   const currentDate = getCurrentDate();
   const words = props.words;
   const [wordObj, setWordObj] = useState(

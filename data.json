@@ -45,8 +45,8 @@
     {
       "id": "20230907",
       "game": 7,
-      "wordOfTheDay": ["T", "R", "E", "E"],
-      "startWord": ["F", "L", "E", "A"],
+      "wordOfTheDay": ["B", "O", "O", "K"],
+      "startWord": ["W", "O", "R", "M"],
       "highscore": 0
     },
     {
@@ -59,8 +59,8 @@
     {
       "id": "20230909",
       "game": 9,
-      "wordOfTheDay": ["S", "A", "N", "D"],
-      "startWord": ["G", "O", "N", "E"],
+      "wordOfTheDay": ["M", "E", "A", "L"],
+      "startWord": ["P", "I", "N", "T"],
       "highscore": 0
     },
     {
@@ -74,7 +74,7 @@
       "id": "20230911",
       "game": 11,
       "wordOfTheDay": ["M", "O", "O", "N"],
-      "startWord": ["B", "O", "A", "T"],
+      "startWord": ["P", "A", "R", "T"],
       "highscore": 0
     },
     {

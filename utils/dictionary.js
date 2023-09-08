@@ -11,11 +11,13 @@ function useIsWordValid(word) {
     },
   };
 
+  const words = ["feet"];
+
   useEffect(() => {
     fetch(url, options)
       .then((data) => data.json())
       .then((data) => {
-        if (data.definitions.length !== 0) {
+        if (data.definitions.length !== 0 || words.includes(word)) {
           console.log({ data });
           setIsValid(true);
         } else {

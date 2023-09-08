@@ -24,6 +24,7 @@ import { CopyIcon } from "@chakra-ui/icons";
 import copy from "copy-to-clipboard";
 
 import useIsWordValid from "../utils/dictionary";
+import isRealWord from "../utils/dictionaryV2";
 import React, {
   forwardRef,
   useImperativeHandle,
@@ -64,7 +65,7 @@ const MainGame = forwardRef(
     const fullyDisabled = new Array(startWord.length).fill(true);
     const [currentWord, setCurrentWord] = useState(startWord);
     const [prevWord, setPrevWord] = useState(startWord);
-    var isValid = useIsWordValid(currentWord.join("").toLowerCase());
+    // const isValid = useIsWordValid(currentWord.join("").toLowerCase());
     const [score, setScore] = useState(0);
     const [personalBestScore, setPersonalBestScore] = useState(0);
     const [isComplete, setComplete] = useState(false);
@@ -90,7 +91,10 @@ const MainGame = forwardRef(
 
     const handleSubmit = async () => {
       event.preventDefault();
-      if (currentWord.toString() !== prevWord.toString() && isValid) {
+      if (
+        currentWord.toString() !== prevWord.toString() &&
+        (await isRealWord(currentWord.join("").toLowerCase()))
+      ) {
         setIsSuccessful(true);
         setScore(score + 1);
         setPrevWord(currentWord);

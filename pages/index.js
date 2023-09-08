@@ -6,6 +6,7 @@ import MainGame from "@/components/MainGame.js";
 import PreviousGames from "@/components/PreviousGames";
 import { getCurrentDate } from "@/components/GetCurrentDate.js";
 import React, { useState, useRef, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import {
   Container,
   Stack,
@@ -69,44 +70,44 @@ export default function Home(props) {
   return (
     <div onMouseMove={handleMouseMove}>
       <HStack position={"absolute"} h={"100vh"} w={"full"} spacing={0}></HStack>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Griffin Velichko" />
+        <meta charSet="UTF-8" />
+
+        <title>LETTR TRAIL - Daily Word Game</title>
+        <meta
+          name="description"
+          content="In Lettr Trail, change one letter at a time to find the WORD OF THE DAY. Aim for the fewest moves and share daily scores!"
+        />
+        <meta
+          name="keywords"
+          content="lettr trail, lettrail, word game, games, free games, word of the day, daily challenge, letter trail, puzzle games"
+        />
+
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+      </Head>
       <Center w={"full"} bgColor={"background"}>
-        <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta name="author" content="Griffin Velichko" />
-          <meta charSet="UTF-8" />
-
-          <title>LETTR TRAIL - Daily Word Game</title>
-          <meta
-            name="description"
-            content="In Lettr Trail, change one letter at a time to find the WORD OF THE DAY. Aim for the fewest moves and share daily scores!"
-          />
-          <meta
-            name="keywords"
-            content="lettr trail, lettrail, word game, games, free games, word of the day, daily challenge, letter trail, puzzle games"
-          />
-
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/favicon-16x16.png"
-          />
-          <link rel="manifest" href="/site.webmanifest" />
-          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-          <meta name="msapplication-TileColor" content="#da532c" />
-          <meta name="theme-color" content="#ffffff" />
-        </Head>
         <VStack
           position={"relative"}
           spacing={0}
@@ -164,6 +165,7 @@ export default function Home(props) {
             ref={gameRef} // pass the ref to the MainGame component
           />
         </VStack>
+        <Analytics />
       </Center>
     </div>
   );

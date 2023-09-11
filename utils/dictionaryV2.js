@@ -1,12 +1,16 @@
 function checkWord(word, url, options) {
   const words = ["feet"];
+  const badWords = ["porn", "fuck", "shit", "fag"];
 
   console.log("check " + word);
 
   return fetch(url, options)
     .then((data) => data.json())
     .then((data) => {
-      if (data.definitions.length !== 0 || words.includes(word)) {
+      if (
+        !badWords.includes(word) &
+        (data.definitions.length !== 0 || words.includes(word))
+      ) {
         console.log({ data });
         return true;
       } else {

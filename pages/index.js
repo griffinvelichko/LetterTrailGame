@@ -39,6 +39,21 @@ export default function Home(props) {
   const [text, setText] = useState("LETTR TRAIL");
   const [isOnRight, setIsOnRight] = useState(false);
 
+  const schemaOrgData = {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    headline: "LETTR TRAIL - Daily Word Game",
+    datePublished: "2023-09-02T00:00:00Z",
+    author: {
+      "@type": "Person",
+      name: "Griffin Velichko",
+    },
+    image: "https://www.lettrail.com/android-chrome-384x384.png",
+    description:
+      "In Lettr Trail, change one letter at a time to find the WORD OF THE DAY. Aim for the fewest moves and share daily scores!",
+    url: "https://www.lettrail.com",
+  };
+
   function handleGameSelect(word) {
     const currHistory = new Map(JSON.parse(localStorage.getItem("history")));
     if (currHistory) {
@@ -73,7 +88,7 @@ export default function Home(props) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Griffin Velichko" />
-        <meta charSet="UTF-8" />
+        <meta charset="UTF-8" />
 
         <title>LETTR TRAIL - Daily Word Game</title>
         <meta
@@ -106,6 +121,24 @@ export default function Home(props) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
+
+        <meta property="og:title" content="LETTR TRAIL - Daily Word Game" />
+        <meta
+          property="og:description"
+          content="In Lettr Trail, change one letter at a time to find the WORD OF THE DAY. Aim for the fewest moves and share daily scores!"
+        />
+        <meta
+          property="og:image"
+          content="https://www.lettrail.com/android-chrome-384x384.png"
+        />
+        <meta property="og:url" content="https://www.lettrail.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@lettrail" />
+
+        <link rel="canonical" href="https://www.lettrail.com" />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgData)}
+        </script>
       </Head>
       <Center w={"full"} bgColor={"background"}>
         <VStack

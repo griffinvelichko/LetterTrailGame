@@ -146,6 +146,20 @@
       "wordOfTheDay": ["S", "O", "A", "K"],
       "startWord": ["S", "L", "O", "P"],
       "highscore": 0
+    },
+    {
+      "id": "20230922",
+      "game": 22,
+      "wordOfTheDay": ["F", "O", "O", "D"],
+      "startWord": ["S", "A", "L", "T"],
+      "highscore": 0
+    },
+    {
+      "id": "20230923",
+      "game": 23,
+      "wordOfTheDay": ["S", "O", "A", "P"],
+      "startWord": ["B", "L", "I", "P"],
+      "highscore": 0
     }
   ]
 }

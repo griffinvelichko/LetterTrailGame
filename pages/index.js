@@ -122,7 +122,10 @@ export default function Home(props) {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
 
-        <meta property="og:title" content="LETTR TRAIL - Daily Word Game" />
+        <meta
+          property="og:title"
+          content="LETTR TRAIL - Daily Word Ladder Game"
+        />
         <meta
           property="og:description"
           content="In Lettr Trail, change one letter at a time to find the WORD OF THE DAY. Aim for the fewest moves and share daily scores!"

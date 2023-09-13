@@ -33,6 +33,16 @@ export default function creditPopup() {
                 .
               </Text>
               <Text>
+                The rules of the game are based off of{" "}
+                <Text display="inline-block" as="b">
+                  Lewis Caroll's
+                </Text>{" "}
+                <Text display="inline-block" as="b">
+                  "Word Ladder"
+                </Text>
+                .
+              </Text>
+              <Text>
                 The data used to determine the validity of a submitted word
                 comes from{" "}
                 <Text display="inline-block" as="b">

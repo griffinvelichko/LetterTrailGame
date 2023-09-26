@@ -181,6 +181,13 @@
       "wordOfTheDay": ["E", "T", "C", "H"],
       "startWord": ["B", "I", "T", "E"],
       "highscore": 0
+    },
+    {
+      "id": "20230927",
+      "game": 27,
+      "wordOfTheDay": ["P", "A", "I", "N"],
+      "startWord": ["M", "E", "N", "D"],
+      "highscore": 0
     }
   ]
 }

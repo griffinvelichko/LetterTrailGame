@@ -142,6 +142,11 @@ export default function Home(props) {
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgData)}
         </script>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9106641748981290"
+          crossorigin="anonymous"
+        ></script>
       </Head>
       <Center w={"full"} bgColor={"background"}>
         <VStack

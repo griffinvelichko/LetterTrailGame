@@ -244,6 +244,34 @@
       "wordOfTheDay": ["S", "H", "O", "O", "T"],
       "startWord": ["B", "R", "U", "T", "E"],
       "highscore": 0
+    },
+    {
+      "id": "20231006",
+      "game": 36,
+      "wordOfTheDay": ["F", "R", "U", "I", "T"],
+      "startWord": ["J", "U", "I", "C", "E"],
+      "highscore": 0
+    },
+    {
+      "id": "20231007",
+      "game": 37,
+      "wordOfTheDay": ["T", "H", "O", "S", "E"],
+      "startWord": ["G", "R", "O", "W", "S"],
+      "highscore": 0
+    },
+    {
+      "id": "20231008",
+      "game": 38,
+      "wordOfTheDay": ["F", "I", "G", "H", "T"],
+      "startWord": ["W", "R", "I", "T", "E"],
+      "highscore": 0
+    },
+    {
+      "id": "20231009",
+      "game": 39,
+      "wordOfTheDay": ["F", "U", "N", "N", "Y"],
+      "startWord": ["L", "U", "C", "K", "Y"],
+      "highscore": 0
     }
   ]
 }

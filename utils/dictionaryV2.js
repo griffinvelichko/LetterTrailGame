@@ -1,5 +1,5 @@
 function checkWord(word, url, options) {
-  const words = ["feet", "haute", "wove", "lice", "mice"];
+  const words = ["brote", "feet", "haute", "wove", "lice", "mice"];
   const badWords = ["porn", "fuck", "shit", "fag"];
 
   console.log("check " + word);

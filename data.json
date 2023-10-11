@@ -279,6 +279,13 @@
       "wordOfTheDay": ["F", "R", "O", "W", "N"],
       "startWord": ["B", "R", "A", "I", "D"],
       "highscore": 0
+    },
+    {
+      "id": "20231011",
+      "game": 41,
+      "wordOfTheDay": ["H", "O", "U", "S", "E"],
+      "startWord": ["F", "O", "R", "G", "E"],
+      "highscore": 0
     }
   ]
 }

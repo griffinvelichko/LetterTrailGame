@@ -218,7 +218,6 @@ const MainGame = forwardRef(
       }
     };
 
-    //Following has not been edited: Modal, Congrats message at the top, Game Update on the left, Word of the Day on the Right, Current Word, Back and Submit Buttons, Submitted Words
     return (
       <>
         <div>

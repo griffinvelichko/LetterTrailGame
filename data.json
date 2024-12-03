@@ -1,343 +1,343 @@
 {
   "words": [
     {
-      "id": "20241015",
+      "id": "20241201",
       "game": 1,
       "wordOfTheDay": ["D", "O", "G"],
       "startWord": ["C", "A", "T"],
       "highscore": 0
     },
     {
-      "id": "20241016",
+      "id": "20241202",
       "game": 2,
       "wordOfTheDay": ["T", "I", "L", "E"],
       "startWord": ["B", "A", "L", "L"],
       "highscore": 0
     },
     {
-      "id": "20241017",
+      "id": "20241203",
       "game": 3,
       "wordOfTheDay": ["T", "A", "S", "K"],
       "startWord": ["F", "A", "L", "L"],
       "highscore": 0
     },
     {
-      "id": "20241018",
+      "id": "20241204",
       "game": 4,
       "wordOfTheDay": ["W", "O", "R", "D"],
       "startWord": ["H", "U", "G", "E"],
       "highscore": 0
     },
     {
-      "id": "20241019",
+      "id": "20241205",
       "game": 5,
       "wordOfTheDay": ["J", "U", "M", "P"],
       "startWord": ["L", "I", "M", "E"],
       "highscore": 0
     },
     {
-      "id": "20241020",
+      "id": "20241206",
       "game": 6,
       "wordOfTheDay": ["F", "A", "S", "T"],
       "startWord": ["W", "A", "S", "H"],
       "highscore": 0
     },
     {
-      "id": "20241021",
+      "id": "20241207",
       "game": 7,
       "wordOfTheDay": ["B", "O", "O", "K"],
       "startWord": ["W", "O", "R", "M"],
       "highscore": 0
     },
     {
-      "id": "20241022",
+      "id": "20241208",
       "game": 8,
       "wordOfTheDay": ["M", "A", "L", "E"],
       "startWord": ["T", "R", "U", "E"],
       "highscore": 0
     },
     {
-      "id": "20241023",
+      "id": "20241209",
       "game": 9,
       "wordOfTheDay": ["M", "E", "A", "L"],
       "startWord": ["P", "I", "N", "T"],
       "highscore": 0
     },
     {
-      "id": "20241024",
+      "id": "20241210",
       "game": 10,
       "wordOfTheDay": ["L", "O", "V", "E"],
       "startWord": ["W", "I", "L", "L"],
       "highscore": 0
     },
     {
-      "id": "20241025",
+      "id": "20241211",
       "game": 11,
       "wordOfTheDay": ["M", "O", "O", "N"],
       "startWord": ["P", "A", "R", "T"],
       "highscore": 0
     },
     {
-      "id": "20241026",
+      "id": "20241212",
       "game": 12,
       "wordOfTheDay": ["K", "I", "N", "D"],
       "startWord": ["H", "U", "R", "T"],
       "highscore": 0
     },
     {
-      "id": "20241027",
+      "id": "20241213",
       "game": 13,
       "wordOfTheDay": ["G", "O", "L", "F"],
       "startWord": ["C", "O", "R", "E"],
       "highscore": 0
     },
     {
-      "id": "20241028",
+      "id": "20241214",
       "game": 14,
       "wordOfTheDay": ["T", "R", "I", "P"],
       "startWord": ["G", "L", "A", "D"],
       "highscore": 0
     },
     {
-      "id": "20241029",
+      "id": "20241215",
       "game": 15,
       "wordOfTheDay": ["S", "P", "A", "N"],
       "startWord": ["C", "L", "A", "P"],
       "highscore": 0
     },
     {
-      "id": "20241030",
+      "id": "20241216",
       "game": 16,
       "wordOfTheDay": ["F", "I", "N", "D"],
       "startWord": ["S", "O", "R", "T"],
       "highscore": 0
     },
     {
-      "id": "20241031",
+      "id": "20241217",
       "game": 17,
       "wordOfTheDay": ["N", "A", "M", "E"],
       "startWord": ["P", "A", "G", "E"],
       "highscore": 0
     },
     {
-      "id": "20241101",
+      "id": "20241218",
       "game": 18,
       "wordOfTheDay": ["T", "A", "S", "K"],
       "startWord": ["F", "O", "I", "L"],
       "highscore": 0
     },
     {
-      "id": "20241102",
+      "id": "20241219",
       "game": 19,
       "wordOfTheDay": ["M", "A", "L", "L"],
       "startWord": ["B", "E", "S", "T"],
       "highscore": 0
     },
     {
-      "id": "20241103",
+      "id": "20241220",
       "game": 20,
       "wordOfTheDay": ["F", "A", "K", "E"],
       "startWord": ["B", "O", "N", "D"],
       "highscore": 0
     },
     {
-      "id": "20241104",
+      "id": "20241221",
       "game": 21,
       "wordOfTheDay": ["S", "O", "A", "K"],
       "startWord": ["F", "L", "I", "P"],
       "highscore": 0
     },
     {
-      "id": "20241105",
+      "id": "20241222",
       "game": 22,
       "wordOfTheDay": ["F", "O", "O", "D"],
       "startWord": ["S", "A", "L", "T"],
       "highscore": 0
     },
     {
-      "id": "20241106",
+      "id": "20241223",
       "game": 23,
       "wordOfTheDay": ["S", "O", "A", "P"],
       "startWord": ["B", "L", "I", "P"],
       "highscore": 0
     },
     {
-      "id": "20241107",
+      "id": "20241224",
       "game": 24,
       "wordOfTheDay": ["C", "L", "A", "Y"],
       "startWord": ["Q", "U", "I", "Z"],
       "highscore": 0
     },
     {
-      "id": "20241108",
+      "id": "20241225",
       "game": 25,
       "wordOfTheDay": ["M", "A", "I", "L"],
       "startWord": ["P", "O", "N", "G"],
       "highscore": 0
     },
     {
-      "id": "20241109",
+      "id": "20241226",
       "game": 26,
       "wordOfTheDay": ["E", "T", "C", "H"],
       "startWord": ["B", "I", "T", "E"],
       "highscore": 0
     },
     {
-      "id": "20241110",
+      "id": "20241227",
       "game": 27,
       "wordOfTheDay": ["P", "A", "I", "N"],
       "startWord": ["M", "E", "N", "D"],
       "highscore": 0
     },
     {
-      "id": "20241111",
+      "id": "20241228",
       "game": 28,
       "wordOfTheDay": ["S", "A", "M", "E"],
       "startWord": ["G", "O", "N", "G"],
       "highscore": 0
     },
     {
-      "id": "20241112",
+      "id": "20241229",
       "game": 29,
       "wordOfTheDay": ["T", "Y", "P", "E"],
       "startWord": ["D", "A", "R", "N"],
       "highscore": 0
     },
     {
-      "id": "20241113",
+      "id": "20241230",
       "game": 30,
       "wordOfTheDay": ["F", "U", "Z", "Z"],
       "startWord": ["L", "I", "K", "E"],
       "highscore": 0
     },
     {
-      "id": "20241114",
+      "id": "20241231",
       "game": 31,
       "wordOfTheDay": ["B", "L", "I", "N", "K"],
       "startWord": ["S", "T", "A", "R", "T"],
       "highscore": 0
     },
     {
-      "id": "20241115",
+      "id": "20250101",
       "game": 32,
       "wordOfTheDay": ["C", "L", "A", "M", "P"],
       "startWord": ["S", "T", "A", "I", "N"],
       "highscore": 0
     },
     {
-      "id": "20241116",
+      "id": "20250102",
       "game": 33,
       "wordOfTheDay": ["C", "L", "I", "M", "B"],
       "startWord": ["S", "A", "U", "C", "E"],
       "highscore": 0
     },
     {
-      "id": "20241117",
+      "id": "20250103",
       "game": 34,
       "wordOfTheDay": ["S", "H", "O", "E", "S"],
       "startWord": ["M", "O", "U", "S", "E"],
       "highscore": 0
     },
     {
-      "id": "20241118",
+      "id": "20250104",
       "game": 35,
       "wordOfTheDay": ["S", "H", "O", "O", "T"],
       "startWord": ["C", "H", "I", "R", "P"],
       "highscore": 0
     },
     {
-      "id": "20241119",
+      "id": "20250105",
       "game": 36,
       "wordOfTheDay": ["F", "R", "O", "W", "N"],
       "startWord": ["G", "L", "E", "B", "E"],
       "highscore": 0
     },
     {
-      "id": "20241120",
+      "id": "20250106",
       "game": 37,
       "wordOfTheDay": ["T", "H", "O", "S", "E"],
       "startWord": ["G", "R", "O", "W", "S"],
       "highscore": 0
     },
     {
-      "id": "20241121",
+      "id": "20250107",
       "game": 38,
       "wordOfTheDay": ["F", "I", "G", "H", "T"],
       "startWord": ["W", "R", "I", "T", "E"],
       "highscore": 0
     },
     {
-      "id": "20241122",
+      "id": "20250108",
       "game": 39,
       "wordOfTheDay": ["C", "L", "O", "C", "K"],
       "startWord": ["C", "H", "E", "E", "K"],
       "highscore": 0
     },
     {
-      "id": "20241123",
+      "id": "20250109",
       "game": 40,
       "wordOfTheDay": ["F", "R", "O", "W", "N"],
       "startWord": ["B", "R", "A", "I", "D"],
       "highscore": 0
     },
     {
-      "id": "20241124",
+      "id": "20250110",
       "game": 41,
       "wordOfTheDay": ["H", "O", "U", "S", "E"],
       "startWord": ["F", "O", "R", "G", "E"],
       "highscore": 0
     },
     {
-      "id": "20241125",
+      "id": "20250111",
       "game": 42,
       "wordOfTheDay": ["S", "A", "B", "E", "R"],
       "startWord": ["F", "E", "V", "E", "R"],
       "highscore": 0
     },
     {
-      "id": "20241126",
+      "id": "20250112",
       "game": 43,
       "wordOfTheDay": ["L", "O", "V", "E", "R"],
       "startWord": ["F", "A", "M", "E", "D"],
       "highscore": 0
     },
     {
-      "id": "20241127",
+      "id": "20250113",
       "game": 44,
       "wordOfTheDay": ["B", "L", "E", "A", "K"],
       "startWord": ["F", "L", "O", "O", "D"],
       "highscore": 0
     },
     {
-      "id": "20241128",
+      "id": "20250114",
       "game": 45,
       "wordOfTheDay": ["F", "A", "K", "E"],
       "startWord": ["S", "O", "M", "E"],
       "highscore": 0
     },
     {
-      "id": "20241129",
+      "id": "20250115",
       "game": 46,
       "wordOfTheDay": ["L", "I", "M", "E"],
       "startWord": ["B", "L", "U", "E"],
       "highscore": 0
     },
     {
-      "id": "20241130",
+      "id": "20250116",
       "game": 47,
       "wordOfTheDay": ["B", "A", "N", "D"],
       "startWord": ["T", "A", "L", "E"],
       "highscore": 0
     },
     {
-      "id": "20241201",
+      "id": "20250117",
       "game": 48,
       "wordOfTheDay": ["B", "L", "O", "B"],
       "startWord": ["S", "T", "A", "R"],
       "highscore": 0
     },
     {
-      "id": "20241202",
+      "id": "20250118",
       "game": 49,
       "wordOfTheDay": ["G", "R", "I", "M"],
       "startWord": ["S", "O", "M", "E"],
